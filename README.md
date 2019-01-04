@@ -40,7 +40,7 @@ The procedure was to first compute the weights of all the datasets on the model 
 
 The model performs well on the training and validation sets retrieved from the VS website and Imagenet. A plot is given below that illustrates accuracy of the model with respect to the number of epochs used. 
 
-![alt text](https://i.imgur.com/HgYLOoi.jpg)
+![alt text](https://i.imgur.com/nCgfW8g.jpg)
 
 The accuracy is plotted with respect to the number of epochs used. Notice that the accuracies seem to level out, though there is still a noticeable and drastic change in certain steps for the validation accuracy. While the model performed spectacular on the training and validation sets, there is quite a different story when the model is tested on images retrieved from Google Streetview. A plot illustrating the accuracy of the model on the two Google Streetview image datasets with respect to epoch $\epsilon = 5,10,20, 50$ is given below.
 
@@ -79,18 +79,6 @@ One other problem that arises in this model is from the input resolution. While 
 Notice that when zooming in on the Vancouver Special, it becomes extremely pixelated. This can cause major problems for the classifier, as it might lose the ability to tell the features apart. Thus it would most likely be more useful to scale images to have better resolution than $128\times 128$. But just as above, this method will increase the model size by a large amount, causing memory and time problems. We lastly address the model's failure on non-cropped Google Streeview images as mentioned in the Results section. 
 
 When applied to images with multiple houses, e.g. Google Streetview images, the model consistently predicts that the input does not contain a Vancouver Special. Possible reasons for this are described above - it is possible that the model overfit the training dataset. As previously discussed, the non-cropped Google Streetview images are almost ``expert level" datapoints - the model would have to be able to classify based on if it can detect the features corresponding to a Vancouver Special. Currently it seems that the model more so predicts whether a test image is simply of a Vancouver Special, not whether it necessarily contains one.
-
-Some of these issues are aided through the use of the dataset retrieved from Google Streetview. It improved the model in the sense that it performed better on Google Streetview images as compared to the model trained on the dataset retrieved from the VS website and Imagenet. The test and validation accuracy plots corresponding to epochs of 5, 10, 20, and 50 are given below. 
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale = .5]{ggle_set.eps}
-	\caption{Accuracy of the Google Streetview images with respect to the epoch number}
-\end{figure}
-
-For epoch number of 50, the model performs well considering the smaller dataset size. Notice that the model seems to fail entirely for epoch number of 20. This result seems to be puzzling and occurs at random. This instability will be studied further. 
-
-Although this model performed somewhat well and better than chance, one might want to achieve better accuracy. This should be fixed by implementing data augmentation to increase the dataset size. 
 
 # Thoughts and Future Updates
 

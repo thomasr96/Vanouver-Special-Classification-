@@ -103,33 +103,33 @@ A future update will include data augmentation as well as tuning of some of the 
 The programs were run in [Python 3.6](https://www.python.org/downloads/release/python-360/) on CPU power. Modules used were Keras, matplotlib, numpy, pandas, PIL , shutil, Tensorflow, and urllib.
 ## Collecting the VS website pictures
 In order to download the house images from the [vancouverspecial.com](vancouverspecial.com), I implemented the Python module Scrapy to scrape the site. One can easily implement this by using the vspecial.py program attached. One must first create a Scrapy project, which can be done by typing the following into the command line.
-'''
+```
 scrapy startproject vspec_crawler
-'''
+```
 The user must then change directories into the new vspec_crawler directory. One can then initialize the Scrapy spider as follows.
-'''
+```
 scrapy genspider vspec_img_crawl vancouverspecial.com
-'''
+```
 Before the user decides to crawl the page, they must replace the vspec_img_crawl.py program (located in vspec_crawler/vspec_crawler/spiders) with vspec_img_crawl.py on this page. The spider can then crawl the page using the following command.
-'''
+```
 scrapy crawl vspec_img_crawl
-'''
+```
 
 ## Collecting the Vancouver Special addresses
 
 The second data set uses pictures from the Google Streetview API with positive training exmples corresponding to addresses from the VS website. The Python module Scrapy is used to scrape the VS website for house addresses of Vancouver Specials in Vancouver, BC. This program can be run similar to above.
 
-'''
+```
 scrapy startproject vspec_address_crawler
-'''
+```
 The user must then change directories into the new vanspec directory. One can then initialize the Scrapy spider as follows.
-'''
+```
 scrapy genspider address_crawler vancouverspecial.com
-'''
+```
 Before the user decides to crawl the page, they must replace the address_crawler.py program (located in vanspec/vanspec/spiders) with address_crawler.py on this page. The spider can then crawl the page using the following command.
-'''
+```
 scrapy crawl address_crawler
-'''
+```
 
 ## Collecting Images from Google Streetview
 

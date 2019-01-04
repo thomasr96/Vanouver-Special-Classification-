@@ -47,12 +47,16 @@ The model performs well on the training and validation sets retrieved from the V
 
 The accuracy is plotted with respect to the number of epochs used. Notice that the accuracies seem to level out, though there is still a noticeable and drastic change in certain steps for the validation accuracy. While the model performed spectacular on the training and validation sets, there is quite a different story when the model is tested on images retrieved from Google Streetview. A plot illustrating the accuracy of the model on the two Google Streetview image datasets with respect to epoch <a href="https://www.codecogs.com/eqnedit.php?latex=$\epsilon&space;=&space;5,10,20,50$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$\epsilon&space;=&space;5,10,20,50$" title="$\epsilon = 5,10,20,50$" /></a> is given below.
 
-<img src="https://i.imgur.com/U8a901Q.jpg" width="480">
+<p align="center">
+  <img src="https://i.imgur.com/U8a901Q.jpg" width="480">
+</p>
 
 
 The model did not perform nearly as well on the cropped images as those in the validation set. While this is true, the model seems to improve gradually with increasing epoch number. Below is a sample of a few images that were the model failed to classify along with their corresponding predicted output and true output (we denote the class of positive examples by 1 and 0 otherwise). The corresponding probability is given as well - this is the probability that the model thinks that the input is a Vancouver Special. 
 
-<img src="https://i.imgur.com/5hvf458.png" width="530">
+<p align="center">
+  <img src="https://i.imgur.com/5hvf458.png" width="530">
+</p>
 
 
 Moreover, the model does much worse on the images that were not cropped. After checking the test performance on each input, the model seems to fail completely. The models  predicts all non-cropped Google Streetview images as not Vancouver Specials. 
@@ -62,7 +66,9 @@ Moreover, the model does much worse on the images that were not cropped. After c
 
 The model trained and validated on the dataset retrieved from Google Streetview improved in the sense that it performed better on Google Streetview images as compared to the model trained on the dataset retrieved from the VS website and Imagenet. The test and validation accuracy plots corresponding to epochs of 5, 10, 20, and 50 are given below. 
 
-<img src="https://i.imgur.com/HgYLOoi.jpg" width="530">
+<p align="center">
+  <img src="https://i.imgur.com/HgYLOoi.jpg" width="530">
+</p>
 
 
 For epoch number of 50, the model performs well considering the smaller dataset size. Notice that the model seems to fail entirely for epoch number of 20. This result seems to be puzzling and occurs at random. This instability will be studied further. 
@@ -78,8 +84,11 @@ A second fix to the problem of overfitting is through data augmentation. Each im
 
 One other problem that arises in this model is from the input resolution. While one can reasonably distinguish large objects in a <a href="https://www.codecogs.com/eqnedit.php?latex=$128\times&space;128$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$128\times&space;128$" title="$128\times 128$" /></a> image, smaller objects become harder to recognize. For example, the image below was retrieved from Google Streetview and contains a Vancouver Special in a yellow bounding box.
 
+<p align="center">
+  <img src="https://i.imgur.com/aiaMdIP.jpg">
+</p>
 
-![alt text](https://i.imgur.com/aiaMdIP.jpg)
+
 
 Notice that when zooming in on the Vancouver Special, it becomes extremely pixelated. This can cause major problems for the classifier, as it might lose the ability to tell the features apart. Thus it would most likely be more useful to scale images to have better resolution than <a href="https://www.codecogs.com/eqnedit.php?latex=$128\times&space;128$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$128\times&space;128$" title="$128\times 128$" /></a>. But just as above, this method will increase the model size by a large amount, causing memory and time problems. We lastly address the model's failure on non-cropped Google Streeview images as mentioned in the Results section. 
 

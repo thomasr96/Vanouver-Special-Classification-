@@ -1,7 +1,5 @@
-$E^2$
-
 # Vanouver Special Classification
-
+<a href="https://www.codecogs.com/eqnedit.php?latex=$x^2$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$x^2$" title="$x^2$" /></a>
 # Introduction
 This project implements a deep learning image classification model to detect if a house matching the Vancouver Special house style is located in an image. he Vancouver Special is an architecture style for homes that was popular between the 1960s and 1980s. They can be characterized by their box-like shape, shallow roof that is normally split through the middle, and some sort of piece that makes the house appear as if its top and bottom floors were split. Many times the top and bottom halves of the street-facing side are covered in different material or painted with different colors. It is also popular to see a balcony on the second floor.
 

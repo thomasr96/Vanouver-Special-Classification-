@@ -39,8 +39,8 @@ The procedure was to first compute the weights of all the datasets on the model 
 # VS Wesbsite Dataset Results
 
 The model performs well on the training and validation sets retrieved from the VS website and Imagenet. A plot is given below that illustrates accuracy of the model with respect to the number of epochs used. 
+<img src="https://i.imgur.com/nCgfW8g.jpg" width="48">
 
-![alt text](https://i.imgur.com/nCgfW8g.jpg)
 
 The accuracy is plotted with respect to the number of epochs used. Notice that the accuracies seem to level out, though there is still a noticeable and drastic change in certain steps for the validation accuracy. While the model performed spectacular on the training and validation sets, there is quite a different story when the model is tested on images retrieved from Google Streetview. A plot illustrating the accuracy of the model on the two Google Streetview image datasets with respect to epoch <a href="https://www.codecogs.com/eqnedit.php?latex=$\epsilon&space;=&space;5,10,20,50$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$\epsilon&space;=&space;5,10,20,50$" title="$\epsilon = 5,10,20,50$" /></a> is given below.
 

@@ -96,7 +96,7 @@ Although this model performed somewhat well and better than chance, one might wa
 
 This project served as a major lesson in data assimilation as well as general neural networks. The main challenge in this project was collecting images in order to form the data set. 
 
-A future update will include data augmentation. A nice extension would be to implement localization such that the program draws a bounding box around all Vancouver Specials in an image, if they are contained within it. 
+A future update will include data augmentation as well as tuning of some of the convolutional layers. A nice extension would be to implement localization such that the program draws a bounding box around all Vancouver Specials in an image, if they are contained within it. 
 
 # How to Run
 
@@ -140,3 +140,11 @@ In order to download the the Google Streetview images corresponding to addresses
 
 For each address, the program will doanload the corresponding Google Streetview image and ask the user if the image corresponding
 to the address is sufficient. All images are saved in the directory specified by the variable dir. If the image is sufficient, then it is saved in the subdirectory image_lib. If not, then the user specifies 'n'. The program retrieves another image that is rotated 45 degrees about the address point from the last image. Once the camera has been rotated 315 degrees, then the image is saved the directory specified by the variable qimage_dir. 
+
+## Running the Model
+
+Once the dataset as been prepared, the user will run model.py. The images must be split up into a training set and a validation set. The paths to these are specified by the variables train_data_dir and validation_data_dir. Furthermore, these directories must contain a separate directory for each class. For example, the positive examples were in a directory titled '1' and negative examples in a directory titles '-1'. Also note that each dataset should be divisible by the batch number, which is given by the variable batch_size. 
+
+The program first passes the datasets through the convolutional layers and saves the outputs in npy files corresponding to each dataset path. The program also saves the sorted list of paths of images in the test set from Google Streetview, this is to account for the order with which Keras retrieves files in a directory. The paths are stored in a csv file, which is then used to view specific test examples that the model was tested on. Note that the validaiton set is not the test set. 
+
+The model is then trained on the specified training set and is also validated. It is then tested on Google Streetview images, both cropped and non cropped. The accuracy for each epoch is plotted as well. The program runs four times through total epic numbers 5, 10, 20, and 50. 

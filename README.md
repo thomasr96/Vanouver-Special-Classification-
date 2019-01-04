@@ -1,3 +1,5 @@
+$E^2$
+
 # Vanouver Special Classification
 
 # Introduction
